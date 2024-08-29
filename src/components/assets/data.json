@@ -1,0 +1,13 @@
+{
+  "h1": "Mortgage Calculator",
+  "clearBtn": "Clear All",
+  "btnIcon": "./images/icon-calculator.svg",
+  "btnText": "Calculate Repayments",
+  "emptyIcon": "./images/illustration-empty.svg",
+  "empty": "Results shown here",
+  "p": "Complete the form and click “calculate repayments” to see what your monthly repayments would be.",
+  "results": "Your results",
+  "resultsP": "Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.",
+    "span": "Your monthly repayments",
+    "span2": " Total you'll repay over the term"
+}

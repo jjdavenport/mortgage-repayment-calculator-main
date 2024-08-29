@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Mortgage Amount",
+    "type": "number",
+    "name": "amount"
+  },
+  {
+    "label": "Mortgage Term",
+    "type": "number",
+    "name": "term"
+  },
+  {
+    "label": "Interest Rate",
+    "type": "number",
+    "name": "rate"
+  },
+  {
+    "label": "Mortgage Type"
+  },
+  {
+    "type": "radio",
+    "button": "Repayment",
+    "name": "repayment"
+  },
+  {
+    "type": "radio",
+    "button": "Interest Only",
+    "name": "interest"
+  }
+]

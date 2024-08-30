@@ -1,0 +1,23 @@
+[
+  {
+    "label": "Mortgage Amount",
+    "type": "number",
+    "name": "amount",
+    "units": "£",
+    "position": "left"
+  },
+  {
+    "label": "Mortgage Term",
+    "type": "number",
+    "name": "term",
+    "units": "years",
+    "position": "right"
+  },
+  {
+    "label": "Interest Rate",
+    "type": "number",
+    "name": "rate",
+    "units": "%",
+    "position": "right"
+  }
+]

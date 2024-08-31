@@ -1,6 +1,5 @@
 import data from "./components/assets/data.json";
-import numberInputs from "./components/assets/number-inputs.json";
-import radioInputs from "./components/assets/radio-inputs.json";
+import inputs from "./components/assets/inputs.json";
 import Form from "./components/form";
 import Footer from "./components/footer";
 import { useMediaQuery } from "react-responsive";
@@ -13,22 +12,14 @@ function App() {
     <>
       {desktop ? (
         <>
-          <Form
-            radioInputs={radioInputs}
-            numberInputs={numberInputs}
-            data={data}
-          />
+          <Form inputs={inputs} data={data} />
           <Results data={data} />
           <Empty data={data} />
           <Footer />
         </>
       ) : (
         <>
-          <Form
-            radioInputs={radioInputs}
-            numberInputs={numberInputs}
-            data={data}
-          />
+          <Form inputs={inputs} data={data} />
           <Results data={data} />
           <Empty data={data} />
           <Footer />

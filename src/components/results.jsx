@@ -1,12 +1,16 @@
-const Results = ({ data }) => {
+const Results = () => {
   return (
     <>
       <section>
-        <h2>{data.results}</h2>
-        <p>{data.resultsP}</p>
-        <span>{data.span}</span>
+        <h2>Your results</h2>
+        <p>
+          Your results are shown below based on the information you provided. To
+          adjust the results, edit the form and click “calculate repayments”
+          again.
+        </p>
+        <span>Your monthly repayments</span>
         <span></span>
-        <span>{data.span2}</span>
+        <span>Total you'll repay over the term</span>
         <span></span>
       </section>
     </>

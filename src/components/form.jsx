@@ -1,4 +1,6 @@
-const Form = ({ data }) => {
+import icon from "./assets/icon-calculator.svg";
+
+const Form = () => {
   const submit = (e) => {
     e.preventDefault();
   };
@@ -10,8 +12,10 @@ const Form = ({ data }) => {
   return (
     <>
       <main>
-        <h1>{data.h1}</h1>
-        <button onClick={clear}>{data.clearBtn}</button>
+        <h1>Mortgage Calculator</h1>
+        <button className="underline" onClick={clear}>
+          Clear All
+        </button>
         <form noValidate onSubmit={submit} className="flex flex-col gap-4">
           <label className="flex flex-col">
             Mortgage Amount
@@ -40,8 +44,8 @@ const Form = ({ data }) => {
             <button>Interest Only</button>
           </label>
           <button type="submit">
-            <img src={data.btnIcon} />
-            {data.btnText}
+            <img src={icon} />
+            Calculate Repayments
           </button>
         </form>
       </main>

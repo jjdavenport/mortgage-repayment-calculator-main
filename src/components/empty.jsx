@@ -1,13 +1,18 @@
-const Empty = ({ data }) => {
-    return (
-        <>
-        <section>
-            <img src={data.emptyIcon} />
-            <span>{data.empty}</span>
-            <p>{data.p}</p>
-        </section>
-        </>
-    )
-}
+import icon from "./assets/illustration-empty.svg";
 
-export default Empty
+const Empty = () => {
+  return (
+    <>
+      <section>
+        <img src={icon} />
+        <span>Results shown here</span>
+        <p>
+          Complete the form and click “calculate repayments” to see what your
+          monthly repayments would be.
+        </p>
+      </section>
+    </>
+  );
+};
+
+export default Empty;

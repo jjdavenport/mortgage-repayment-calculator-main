@@ -10,6 +10,7 @@ function App() {
   const [rate, setRate] = useState("");
   const [button, setButton] = useState(false);
   const [error, setError] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
   const validate = () => {
     const blank = "This field is required";
@@ -19,6 +20,7 @@ function App() {
     if (!rate) error.rate = blank;
     if (!button) error.button = blank;
     setError(error);
+    return Object.keys(error).length === 0;
   };
 
   const clear = () => {
@@ -27,14 +29,15 @@ function App() {
     setTerm("");
     setButton("");
     setError({});
+    setSubmitted(false);
   };
 
   const submit = (e) => {
     e.preventDefault();
     if (validate()) {
-      return true;
+      setSubmitted(true);
     } else {
-      return;
+      setSubmitted(false);
     }
   };
 
@@ -54,7 +57,7 @@ function App() {
         error={error}
         setError={setError}
       />
-      {submit ? <Results /> : <Empty />}
+      {submitted ? <Results /> : <Empty />}
       <Footer />
     </>
   );

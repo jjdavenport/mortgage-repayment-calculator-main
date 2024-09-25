@@ -92,7 +92,7 @@ const Form = ({
           </label>
           <label className="flex flex-col gap-2">
             Mortgage Type
-            <button type="button" onClick={(e) => click("repayment")}>
+            <button type="button" onClick={() => click("repayment")}>
               Repayment
               <div
                 className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border-2 border-gray-500 ${
@@ -100,7 +100,7 @@ const Form = ({
                 }`}
               ></div>
             </button>
-            <button type="button" onClick={(e) => click("interest")}>
+            <button type="button" onClick={() => click("interest")}>
               Interest Only
               <div
                 className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border-2 border-gray-500 ${

@@ -31,7 +31,11 @@ function App() {
 
   const submit = (e) => {
     e.preventDefault();
-    validate();
+    if (validate()) {
+      return true;
+    } else {
+      return;
+    }
   };
 
   return (
@@ -50,7 +54,7 @@ function App() {
         error={error}
         setError={setError}
       />
-      <Empty />
+      {submit ? <Results /> : <Empty />}
       <Footer />
     </>
   );

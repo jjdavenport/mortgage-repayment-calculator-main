@@ -26,6 +26,14 @@ const Form = ({
     }
   };
 
+  const click = (value) => {
+    setButton(value);
+    setError((prev) => ({
+      ...prev,
+      button: "",
+    }));
+  };
+
   const blur = (val, e) => {
     const blank = "This field is required";
     const value = e.target.value;
@@ -84,7 +92,7 @@ const Form = ({
           </label>
           <label className="flex flex-col gap-2">
             Mortgage Type
-            <button type="button" onClick={() => setButton("repayment")}>
+            <button type="button" onClick={(e) => click("repayment")}>
               Repayment
               <div
                 className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border-2 border-gray-500 ${
@@ -92,7 +100,7 @@ const Form = ({
                 }`}
               ></div>
             </button>
-            <button type="button" onClick={() => setButton("interest")}>
+            <button type="button" onClick={(e) => click("interest")}>
               Interest Only
               <div
                 className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border-2 border-gray-500 ${

@@ -41,6 +41,34 @@ function App() {
     }
   };
 
+  const monthly = () => {
+    const total = parseFloat(amount);
+    const interestRate = rate / 100;
+    if (button === "repayment") {
+      const totalInterest = total * interestRate * term;
+      const totalPayment = total + totalInterest;
+      const monthlyPayment = totalPayment / (term * 12);
+      return monthlyPayment.toFixed(2);
+    } else if (button === "interest") {
+      const monthlyInterest = (total * interestRate) / 12;
+      return monthlyInterest.toFixed(2);
+    }
+  };
+
+  const total = () => {
+    const total = parseFloat(amount);
+    const interestRate = rate / 100;
+    if (button === "repayment") {
+      const totalInterest = total * interestRate * term;
+      const totalPayment = total + totalInterest;
+      return totalPayment.toFixed(2);
+    } else if (button === "interest") {
+      const totalInterest = total * interestRate * term;
+      const totalPayment = totalInterest;
+      return totalPayment.toFixed(2);
+    }
+  };
+
   return (
     <>
       <Form
@@ -57,7 +85,7 @@ function App() {
         error={error}
         setError={setError}
       />
-      {submitted ? <Results /> : <Empty />}
+      {submitted ? <Results monthly={monthly} total={total} /> : <Empty />}
       <Footer />
     </>
   );

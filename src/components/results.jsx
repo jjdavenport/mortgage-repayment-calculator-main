@@ -1,7 +1,7 @@
-const Results = () => {
+const Results = ({ total, monthly }) => {
   return (
     <>
-      <section>
+      <section className="flex flex-col">
         <h2>Your results</h2>
         <p>
           Your results are shown below based on the information you provided. To
@@ -9,9 +9,9 @@ const Results = () => {
           again.
         </p>
         <span>Your monthly repayments</span>
-        <span></span>
+        <span>{monthly()}</span>
         <span>Total you'll repay over the term</span>
-        <span></span>
+        <span>{total()}</span>
       </section>
     </>
   );

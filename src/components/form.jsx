@@ -12,6 +12,7 @@ const Form = ({
   error,
   button,
   setButton,
+  setError,
 }) => {
   const change = (value, e) => {
     if (value === "amount") {
@@ -23,6 +24,15 @@ const Form = ({
     } else {
       return;
     }
+  };
+
+  const blur = (val, e) => {
+    const blank = "This field is required";
+    const value = e.target.value;
+    setError((prev) => ({
+      ...prev,
+      [val]: value ? "" : blank,
+    }));
   };
 
   return (
@@ -38,36 +48,39 @@ const Form = ({
             <div>
               <span>£</span>
               <input
+                onBlur={(e) => blur("amount", e)}
                 onChange={(e) => change("amount", e)}
                 value={amount}
                 type="number"
               />
             </div>
-            {error && <span>{error}</span>}
+            {error.amount && <span>{error.amount}</span>}
           </label>
           <label className="flex flex-col">
             Mortgage Term
             <div className="flex flex-row-reverse">
               <span>years</span>
               <input
+                onBlur={(e) => blur("term", e)}
                 onChange={(e) => change("term", e)}
                 value={term}
                 type="number"
               />
             </div>
-            {error && <span>{error}</span>}
+            {error.term && <span>{error.term}</span>}
           </label>
           <label className="flex flex-col">
             Interest Rate
             <div className="flex flex-row-reverse">
               <span>%</span>
               <input
+                onBlur={(e) => blur("rate", e)}
                 onChange={(e) => change("rate", e)}
                 value={rate}
                 type="number"
               />
             </div>
-            {error && <span>{error}</span>}
+            {error.rate && <span>{error.rate}</span>}
           </label>
           <label className="flex flex-col gap-2">
             Mortgage Type
@@ -87,7 +100,7 @@ const Form = ({
                 }`}
               ></div>
             </button>
-            {error && <span>{error}</span>}
+            {error.button && <span>{error.button}</span>}
           </label>
           <button type="submit">
             <img src={icon} />

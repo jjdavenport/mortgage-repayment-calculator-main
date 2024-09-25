@@ -9,14 +9,16 @@ function App() {
   const [term, setTerm] = useState("");
   const [rate, setRate] = useState("");
   const [button, setButton] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState({});
 
-  const check = (input) => {
-    if (input === "") {
-      setError("blank");
-    } else {
-      setError("");
-    }
+  const validate = () => {
+    const blank = "This field is required";
+    const error = {};
+    if (!amount) error.amount = blank;
+    if (!term) error.term = blank;
+    if (!rate) error.rate = blank;
+    if (!button) error.button = blank;
+    setError(error);
   };
 
   const clear = () => {
@@ -24,11 +26,12 @@ function App() {
     setRate("");
     setTerm("");
     setButton("");
+    setError({});
   };
 
   const submit = (e) => {
     e.preventDefault();
-    check();
+    validate();
   };
 
   return (
@@ -45,6 +48,7 @@ function App() {
         button={button}
         setButton={setButton}
         error={error}
+        setError={setError}
       />
       <Empty />
       <Footer />

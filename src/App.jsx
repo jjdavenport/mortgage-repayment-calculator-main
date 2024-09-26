@@ -48,10 +48,10 @@ function App() {
       const totalInterest = total * interestRate * term;
       const totalPayment = total + totalInterest;
       const monthlyPayment = totalPayment / (term * 12);
-      return monthlyPayment.toFixed(2);
+      return parseFloat(monthlyPayment.toFixed(2)).toLocaleString();
     } else if (button === "interest") {
       const monthlyInterest = (total * interestRate) / 12;
-      return monthlyInterest.toFixed(2);
+      return parseFloat(monthlyInterest.toFixed(2)).toLocaleString();
     }
   };
 
@@ -61,11 +61,11 @@ function App() {
     if (button === "repayment") {
       const totalInterest = total * interestRate * term;
       const totalPayment = total + totalInterest;
-      return totalPayment.toFixed(2);
+      return parseFloat(totalPayment.toFixed(2)).toLocaleString();
     } else if (button === "interest") {
       const totalInterest = total * interestRate * term;
       const totalPayment = totalInterest;
-      return totalPayment.toFixed(2);
+      return parseFloat(totalPayment.toFixed(2)).toLocaleString();
     }
   };
 

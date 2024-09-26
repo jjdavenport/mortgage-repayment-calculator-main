@@ -44,28 +44,30 @@ function App() {
   const monthly = () => {
     const total = parseFloat(amount);
     const interestRate = rate / 100;
+    const regex = /\B(?=(\d{3})+(?!\d))/g;
     if (button === "repayment") {
       const totalInterest = total * interestRate * term;
       const totalPayment = total + totalInterest;
       const monthlyPayment = totalPayment / (term * 12);
-      return parseFloat(monthlyPayment.toFixed(2)).toLocaleString();
+      return monthlyPayment.toFixed(2).replace(regex, ",");
     } else if (button === "interest") {
       const monthlyInterest = (total * interestRate) / 12;
-      return parseFloat(monthlyInterest.toFixed(2)).toLocaleString();
+      return monthlyInterest.toFixed(2).replace(regex, ",");
     }
   };
 
   const total = () => {
     const total = parseFloat(amount);
     const interestRate = rate / 100;
+    const regex = /\B(?=(\d{3})+(?!\d))/g;
     if (button === "repayment") {
       const totalInterest = total * interestRate * term;
       const totalPayment = total + totalInterest;
-      return parseFloat(totalPayment.toFixed(2)).toLocaleString();
+      return totalPayment.toFixed(2).replace(regex, ",");
     } else if (button === "interest") {
       const totalInterest = total * interestRate * term;
       const totalPayment = totalInterest;
-      return parseFloat(totalPayment.toFixed(2)).toLocaleString();
+      return totalPayment.toFixed(2).replace(regex, ",");
     }
   };
 

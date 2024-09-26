@@ -11,6 +11,8 @@ function App() {
   const [button, setButton] = useState(false);
   const [error, setError] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitTotal, setSubmitTotal] = useState("");
+  const [submitMonthly, setSubmitMonthly] = useState("");
 
   const validate = () => {
     const blank = "This field is required";
@@ -36,6 +38,8 @@ function App() {
     e.preventDefault();
     if (validate()) {
       setSubmitted(true);
+      setSubmitMonthly(monthly());
+      setSubmitTotal(total());
     } else {
       setSubmitted(false);
     }
@@ -73,22 +77,30 @@ function App() {
 
   return (
     <>
-      <Form
-        onClick={clear}
-        onSubmit={submit}
-        amount={amount}
-        setAmount={setAmount}
-        term={term}
-        setTerm={setTerm}
-        rate={rate}
-        setRate={setRate}
-        button={button}
-        setButton={setButton}
-        error={error}
-        setError={setError}
-      />
-      {submitted ? <Results monthly={monthly} total={total} /> : <Empty />}
-      <Footer />
+      <div className="font-custom text-base">
+        <main>
+          <Form
+            onClick={clear}
+            onSubmit={submit}
+            amount={amount}
+            setAmount={setAmount}
+            term={term}
+            setTerm={setTerm}
+            rate={rate}
+            setRate={setRate}
+            button={button}
+            setButton={setButton}
+            error={error}
+            setError={setError}
+          />
+          {submitted ? (
+            <Results monthly={() => submitMonthly} total={() => submitTotal} />
+          ) : (
+            <Empty />
+          )}
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

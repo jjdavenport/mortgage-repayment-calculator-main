@@ -77,28 +77,33 @@ function App() {
 
   return (
     <>
-      <div className="font-custom text-base font-medium">
-        <main>
-          <Form
-            onClick={clear}
-            onSubmit={submit}
-            amount={amount}
-            setAmount={setAmount}
-            term={term}
-            setTerm={setTerm}
-            rate={rate}
-            setRate={setRate}
-            button={button}
-            setButton={setButton}
-            error={error}
-            setError={setError}
-          />
-          {submitted ? (
-            <Results monthly={() => submitMonthly} total={() => submitTotal} />
-          ) : (
-            <Empty />
-          )}
-        </main>
+      <div className="justify-between font-custom text-base font-medium md:flex md:h-full md:min-h-screen md:flex-col md:bg-slate100">
+        <div className="md:flex md:flex-1 md:items-center md:justify-center md:p-4">
+          <main className="max-w-screen-lg md:flex md:rounded-3xl md:bg-white">
+            <Form
+              onClick={clear}
+              onSubmit={submit}
+              amount={amount}
+              setAmount={setAmount}
+              term={term}
+              setTerm={setTerm}
+              rate={rate}
+              setRate={setRate}
+              button={button}
+              setButton={setButton}
+              error={error}
+              setError={setError}
+            />
+            {submitted ? (
+              <Results
+                monthly={() => submitMonthly}
+                total={() => submitTotal}
+              />
+            ) : (
+              <Empty />
+            )}
+          </main>
+        </div>
         <Footer />
       </div>
     </>

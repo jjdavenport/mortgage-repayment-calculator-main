@@ -62,7 +62,9 @@ const Input = ({
           </span>
         )}
       </div>
-      {error && <span className="text-red">{error}</span>}
+      <div className="h-1">
+        {error && <span className="text-red">{error}</span>}
+      </div>
     </label>
   );
 };

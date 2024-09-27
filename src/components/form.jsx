@@ -46,8 +46,8 @@ const Form = ({
 
   return (
     <>
-      <section className="flex flex-col gap-6 p-4">
-        <div className="flex flex-col gap-2">
+      <section className="md:~px-4/8 flex flex-col gap-6 p-4 md:w-1/2 md:p-8">
+        <div className="flex flex-col gap-2 md:flex-row md:justify-between">
           <h1 className="text-2xl font-bold text-slate900">
             Mortgage Calculator
           </h1>
@@ -67,53 +67,59 @@ const Form = ({
             error={error.amount}
             left="£"
           />
-          <Input
-            label="Mortgage Term"
-            value={term}
-            onChange={(e) => change("term", e)}
-            onBlur={(e) => blur("term", e)}
-            error={error.term}
-            right="years"
-          />
-          <Input
-            label="Interest Rate"
-            value={rate}
-            onChange={(e) => change("rate", e)}
-            onBlur={(e) => blur("rate", e)}
-            error={error.rate}
-            right="%"
-          />
-          <label className="flex flex-col gap-2 text-slate700">
+          <div className="flex flex-col gap-6 md:flex-row md:gap-4">
+            <Input
+              label="Mortgage Term"
+              value={term}
+              onChange={(e) => change("term", e)}
+              onBlur={(e) => blur("term", e)}
+              error={error.term}
+              right="years"
+            />
+            <Input
+              label="Interest Rate"
+              value={rate}
+              onChange={(e) => change("rate", e)}
+              onBlur={(e) => blur("rate", e)}
+              error={error.rate}
+              right="%"
+            />
+          </div>
+          <label className="flex flex-col gap-1 text-slate700">
             Mortgage Type
-            <button
-              className={`${button === "repayment" ? "bg-lime bg-opacity-20 outline-lime" : "bg-none outline-slate500 hover:outline-lime"} flex items-center gap-4 rounded-sm p-3 text-lg font-bold text-slate900 outline outline-1 transition duration-300 ease-in-out`}
-              type="button"
-              onClick={() => click("repayment")}
-            >
-              <div
-                className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border-2 ${button === "repayment" ? "border-lime" : "border-gray-500"}`}
+            <div className="flex flex-col gap-2">
+              <button
+                className={`${button === "repayment" ? "bg-lime bg-opacity-20 outline-lime" : "bg-none outline-slate500 hover:outline-lime"} flex items-center gap-4 rounded-sm p-3 text-lg font-bold text-slate900 outline outline-1 transition duration-300 ease-in-out`}
+                type="button"
+                onClick={() => click("repayment")}
               >
                 <div
-                  className={`flex h-3 w-3 items-center justify-center rounded-full ${button === "repayment" ? "bg-lime" : "bg-transparent"} `}
-                ></div>
-              </div>
-              Repayment
-            </button>
-            <button
-              type="button"
-              className={`${button === "interest" ? "bg-lime bg-opacity-20 outline-lime" : "bg-none outline-slate500 hover:outline-lime"} flex items-center gap-4 rounded-sm p-3 text-lg font-bold text-slate900 outline outline-1 transition duration-300 ease-in-out`}
-              onClick={() => click("interest")}
-            >
-              <div
-                className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border-2 ${button === "interest" ? "border-lime" : "border-gray-500"}`}
+                  className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border-2 ${button === "repayment" ? "border-lime" : "border-gray-500"}`}
+                >
+                  <div
+                    className={`flex h-3 w-3 items-center justify-center rounded-full ${button === "repayment" ? "bg-lime" : "bg-transparent"} `}
+                  ></div>
+                </div>
+                Repayment
+              </button>
+              <button
+                type="button"
+                className={`${button === "interest" ? "bg-lime bg-opacity-20 outline-lime" : "bg-none outline-slate500 hover:outline-lime"} flex items-center gap-4 rounded-sm p-3 text-lg font-bold text-slate900 outline outline-1 transition duration-300 ease-in-out`}
+                onClick={() => click("interest")}
               >
                 <div
-                  className={`flex h-3 w-3 items-center justify-center rounded-full ${button === "interest" ? "bg-lime" : "bg-transparent"} `}
-                ></div>
-              </div>
-              Interest Only
-            </button>
-            {error.button && <span className="text-red">{error.button}</span>}
+                  className={`flex h-5 w-5 cursor-pointer items-center justify-center rounded-full border-2 ${button === "interest" ? "border-lime" : "border-gray-500"}`}
+                >
+                  <div
+                    className={`flex h-3 w-3 items-center justify-center rounded-full ${button === "interest" ? "bg-lime" : "bg-transparent"} `}
+                  ></div>
+                </div>
+                Interest Only
+              </button>
+            </div>
+            <div className="h-1">
+              {error.button && <span className="text-red">{error.button}</span>}
+            </div>
           </label>
           <button
             className="flex w-full transform justify-center gap-2 rounded-full bg-lime p-3 text-lg font-bold text-slate900 duration-300 ease-in-out hover:bg-opacity-40"

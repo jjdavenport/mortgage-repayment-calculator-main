@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Cleave from "cleave.js/react";
 
 const Input = ({
   label,
@@ -8,7 +9,8 @@ const Input = ({
   error,
   left,
   right,
-  type = "number",
+  type = "text",
+  options = {},
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -37,7 +39,7 @@ const Input = ({
             {left}
           </span>
         )}
-        <input
+        <Cleave
           className="w-full cursor-pointer p-2 text-lg font-bold text-slate900 caret-slate900 outline-none"
           onFocus={() => setIsFocused(true)}
           onBlur={(e) => {
@@ -47,6 +49,7 @@ const Input = ({
           onChange={onChange}
           value={value}
           type={type}
+          options={options}
         />
         {right && (
           <span

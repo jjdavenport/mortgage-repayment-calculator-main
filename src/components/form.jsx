@@ -16,12 +16,13 @@ const Form = ({
   setError,
 }) => {
   const change = (value, e) => {
+    const rawValue = e.target.rawValue;
     if (value === "amount") {
-      setAmount(e.target.value);
+      setAmount(rawValue);
     } else if (value === "term") {
-      setTerm(e.target.value);
+      setTerm(rawValue);
     } else if (value === "rate") {
-      setRate(e.target.value);
+      setRate(rawValue);
     } else {
       return;
     }
@@ -66,6 +67,11 @@ const Form = ({
             onBlur={(e) => blur("amount", e)}
             error={error.amount}
             left="£"
+            options={{
+              numeral: true,
+              numeralThousandsGroupStyle: "thousand",
+              rawValueTrimPrefix: true,
+            }}
           />
           <div className="flex flex-col gap-6 md:flex-row md:gap-4">
             <Input
@@ -75,6 +81,11 @@ const Form = ({
               onBlur={(e) => blur("term", e)}
               error={error.term}
               right="years"
+              options={{
+                numeral: true,
+                numeralPositiveOnly: true,
+                numeralIntegerScale: 3,
+              }}
             />
             <Input
               label="Interest Rate"
@@ -83,6 +94,12 @@ const Form = ({
               onBlur={(e) => blur("rate", e)}
               error={error.rate}
               right="%"
+              options={{
+                numeral: true,
+                numeralPositiveOnly: true,
+                numeralDecimalScale: 2,
+                delimiter: "",
+              }}
             />
           </div>
           <label className="flex flex-col gap-1 text-slate700">

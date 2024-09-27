@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <footer className="text-center text-xs">
+      <footer className="bg-slate900 text-slate300 text-center text-xs">
         <p className="inline">
           Challenge by
           <a

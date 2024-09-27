@@ -77,7 +77,7 @@ function App() {
 
   return (
     <>
-      <div className="font-custom text-base">
+      <div className="font-custom text-base font-medium">
         <main>
           <Form
             onClick={clear}

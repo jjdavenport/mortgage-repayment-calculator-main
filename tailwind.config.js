@@ -15,6 +15,7 @@ export default {
         slate500: "hsl(200, 26%, 54%)",
         slate700: "hsl(200, 24%, 40%)",
         slate900: "hsl(202, 55%, 16%)",
+        slateBlack: "hsl(202, 54%, 13%)",
       },
     },
   },

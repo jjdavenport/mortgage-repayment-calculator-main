@@ -1,7 +1,7 @@
 const Results = ({ total, monthly }) => {
   return (
     <>
-      <section className="md:rounded-bl-xl5 md:~px-3/8 flex flex-col justify-center gap-8 bg-slate900 px-4 py-8 text-left text-slate100 md:w-1/2 md:justify-start md:rounded-r-3xl md:p-8">
+      <section className="md:rounded-bl-xl5 md:~px-3/8 flex flex-1 flex-col gap-8 bg-slate900 px-4 py-8 text-left text-slate100 md:w-1/2 md:justify-start md:rounded-r-3xl md:p-8">
         <article className="flex flex-col gap-3">
           <h2 className="text-2xl font-bold">Your results</h2>
           <p className="text-slate300">

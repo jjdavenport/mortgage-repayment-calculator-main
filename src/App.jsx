@@ -77,9 +77,9 @@ function App() {
 
   return (
     <>
-      <div className="justify-between font-custom text-base font-medium md:flex md:h-full md:min-h-screen md:flex-col md:bg-slate100">
-        <div className="md:flex md:flex-1 md:items-center md:justify-center md:p-4">
-          <main className="max-w-screen-lg md:flex md:rounded-3xl md:bg-white">
+      <div className="flex h-full min-h-screen flex-col justify-between font-custom text-base font-medium md:flex-col md:bg-slate100">
+        <div className="flex flex-1 md:items-center md:justify-center md:p-4">
+          <main className="flex max-w-screen-lg flex-col md:flex-row md:rounded-3xl md:bg-white">
             <Form
               onClick={clear}
               onSubmit={submit}
